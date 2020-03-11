@@ -3,6 +3,7 @@ package Defender20XX;
 
 import java.awt.event.KeyEvent;
 import java.util.Iterator;
+import java.util.ArrayList;
 
 public class StageOneScene extends Scene {
     private Ship ship;
@@ -10,14 +11,29 @@ public class StageOneScene extends Scene {
     private Enemy enemy;
     private Building building1;
     private Building building2;
+    private Car car1;
+    private Car car2;
+    private ArrayList<Streetlamp> streetlamps;
+    
     StageOneScene(int col, int row) {
         ship = new Ship(50, 50);
         shipGuns = new ShipGuns(ship, 0, 0);
         enemy = new Enemy(100, 50, 0);
+        car1 = new Car(25, 129);
+        car2 = new Car(115, 129);
         building1 = new Building(90, 35);
         building1.set_zDepth(2);
         building2 = new Building(25, 25);
         building2.set_zDepth(3);
+        streetlamps = new ArrayList();
+        for(int i = 0; i < 15; i++) {
+            Streetlamp streetlamp = new Streetlamp(i*30, 113);
+            streetlamp.set_zDepth(1);
+            streetlamps.add(streetlamp);
+            sceneObjects.add(streetlamp);
+        }
+        sceneObjects.add(car1);
+        sceneObjects.add(car2);
         sceneObjects.add(building1);
         sceneObjects.add(building2);
         sceneObjects.add(ship);
@@ -51,6 +67,12 @@ public class StageOneScene extends Scene {
                     break;
             }
         }
+        for(int i = 0; i < streetlamps.size(); i++) {
+            Streetlamp streetlamp = streetlamps.get(i);
+            if(streetlamp.get_xPos() < -80) {
+                streetlamp.set_xPos(230);
+            }
+        }
         building1.set_xPos(building1.get_xPos() - 1);
         if (building1.get_xPos() < -80) {
             sceneObjects.remove(building1);
@@ -64,6 +86,18 @@ public class StageOneScene extends Scene {
             building2 = new Building(230, 25);
             building2.set_zDepth(3);
             sceneObjects.add(building2);
+        }
+        if (car1.get_xPos() < -80) {
+            sceneObjects.remove(car1);
+            car1 = new Car(230, 129);
+            car1.set_zDepth(1);
+            sceneObjects.add(car1);
+        }
+        if (car2.get_xPos() < -80) {
+            sceneObjects.remove(car2);
+            car2 = new Car(230, 129);
+            car2.set_zDepth(1);
+            sceneObjects.add(car2);
         }
         if (ship.weaponsEngaged()) {
             shipGuns.setVisible(true);

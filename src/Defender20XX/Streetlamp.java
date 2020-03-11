@@ -2,10 +2,10 @@ package Defender20XX;
 
 import java.awt.Color;
 
-public class Building extends SceneObject {
+public class Streetlamp extends SceneObject {
     
-    public Building(int x, int y) {
-        super(Sprite.getSprite("building"), x, y);
+    public Streetlamp(int x, int y) {
+        super(Sprite.getSprite("streetlamp"), x, y);
         setColor(Color.BLUE);
     }
     public boolean moved() {
@@ -22,4 +22,10 @@ public class Building extends SceneObject {
         }
         return moved;
     }
+    @Override
+    public void update() {
+        set_xPos(get_xPos() - 8);
+        super.update();
+    }
+    
 }
