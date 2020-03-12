@@ -13,7 +13,7 @@ public class ShipGuns extends SceneObject {
         super(Sprite.getShot1(), x, y);
         set_zDepth(1);
         this.setVisible(false);
-        setColor(Color.YELLOW);
+        setColor(ColorPalette.B1);
         this.ship = ship;
         frame = 0;
         flickerRate = 10;

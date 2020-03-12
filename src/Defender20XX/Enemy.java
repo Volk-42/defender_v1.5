@@ -13,7 +13,7 @@ public class Enemy extends SceneObject {
     Enemy(int x, int y, int activationDelay) {
         super(Sprite.getEnemyFrame(0), x, y, activationDelay);
         set_zDepth(1);
-        setColor(Color.BLUE);
+        setColor(ColorPalette.B2);
         setAnimated(false);
         setVisible(true);
         setLoops(false);

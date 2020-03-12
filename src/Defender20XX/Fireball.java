@@ -8,7 +8,7 @@ public class Fireball extends SceneObject {
     Fireball(int x, int y, int activationDelay) {
         super(Sprite.getFireballFrame(0), x, y, activationDelay);
         set_zDepth(0);
-        setColor(Color.YELLOW);
+        setColor(ColorPalette.B1);
         setAnimationSpeed(4);
         setAnimationLength(Sprite.FIREBALL_FRAMES.size() - 1);
     }

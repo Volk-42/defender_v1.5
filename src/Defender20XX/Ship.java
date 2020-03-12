@@ -18,7 +18,7 @@ public class Ship extends SceneObject {
     public Ship(int x, int y) {
         super(Sprite.getShip(), x, y);
         set_zDepth(1);
-        setColor(Color.BLUE);
+        setColor(ColorPalette.B2);
         weaponsLag = 0;
         engineLag = 0;
         frame = 1;

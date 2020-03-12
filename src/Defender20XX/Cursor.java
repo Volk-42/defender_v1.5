@@ -6,7 +6,7 @@ public class Cursor extends SceneObject {
     
     public Cursor(int x, int y) {
         super(Sprite.getSprite("cursor"), x, y);
-        setColor(Color.BLUE);
+        setColor(ColorPalette.B2);
     }
     public boolean moved() {
         boolean moved;

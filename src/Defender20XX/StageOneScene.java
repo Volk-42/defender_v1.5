@@ -9,25 +9,29 @@ public class StageOneScene extends Scene {
     private Ship ship;
     private ShipGuns shipGuns;
     private Enemy enemy;
+    private boolean enemy_xDir = true;
+    private boolean enemy_yDir = true;
     private Building building1;
     private Building building2;
     private Car car1;
     private Car car2;
+    final private int ground_y = 127;
+    final private int streetLampGround_y = 111;
     private ArrayList<Streetlamp> streetlamps;
     
     StageOneScene(int col, int row) {
         ship = new Ship(50, 50);
         shipGuns = new ShipGuns(ship, 0, 0);
         enemy = new Enemy(100, 50, 0);
-        car1 = new Car(25, 129);
-        car2 = new Car(115, 129);
+        car1 = new Car(25, ground_y);
+        car2 = new Car(115, ground_y);
         building1 = new Building(90, 35);
         building1.set_zDepth(2);
         building2 = new Building(25, 25);
         building2.set_zDepth(3);
         streetlamps = new ArrayList();
-        for(int i = 0; i < 15; i++) {
-            Streetlamp streetlamp = new Streetlamp(i*30, 113);
+        for(int i = 0; i < 8; i++) {
+            Streetlamp streetlamp = new Streetlamp(i*40, streetLampGround_y);
             streetlamp.set_zDepth(1);
             streetlamps.add(streetlamp);
             sceneObjects.add(streetlamp);
@@ -73,6 +77,34 @@ public class StageOneScene extends Scene {
                 streetlamp.set_xPos(230);
             }
         }
+        //enemy x direction
+        if(enemy_xDir) {
+            enemy.set_xPos(enemy.get_xPos()+1);
+        }
+        else if(!enemy_xDir){
+            enemy.set_xPos(enemy.get_xPos()-1);
+        }
+        //enemy y direction
+        if(enemy_yDir) {
+            enemy.set_yPos(enemy.get_yPos()+1);
+        }
+        else {
+            enemy.set_yPos(enemy.get_yPos()-1);
+        }
+        //checks to see if x direction needs reversing
+        if(enemy.get_xPos() > 150 && enemy_xDir) {
+            enemy_xDir = false;
+        }
+        if(enemy.get_xPos() < 100 && !enemy_xDir) {
+            enemy_xDir = true;
+        }
+        //checks to see if enemy y direction needs reversing
+        if(enemy.get_yPos() > 75 && enemy_yDir) {
+            enemy_yDir = false;
+        }
+        if(enemy.get_yPos() < 20 && !enemy_yDir) {
+            enemy_yDir = true;
+        }
         building1.set_xPos(building1.get_xPos() - 1);
         if (building1.get_xPos() < -80) {
             sceneObjects.remove(building1);
@@ -89,13 +121,13 @@ public class StageOneScene extends Scene {
         }
         if (car1.get_xPos() < -80) {
             sceneObjects.remove(car1);
-            car1 = new Car(230, 129);
+            car1 = new Car(230, ground_y);
             car1.set_zDepth(1);
             sceneObjects.add(car1);
         }
         if (car2.get_xPos() < -80) {
             sceneObjects.remove(car2);
-            car2 = new Car(230, 129);
+            car2 = new Car(230, ground_y);
             car2.set_zDepth(1);
             sceneObjects.add(car2);
         }

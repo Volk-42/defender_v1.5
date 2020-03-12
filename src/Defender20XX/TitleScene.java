@@ -12,14 +12,16 @@ public class TitleScene extends Scene {
     private boolean startGame;
     private boolean highScores;
     private int fireballCooldown;
+    final private int text_x;
+    final private int text_y;
     TitleScene() {
-        
-        cursor = new Cursor(95, 61);
+        text_x = 90;
+        text_y = 50;
+        cursor = new Cursor(text_x - 10, 61);
         sceneObjects.add(cursor);
-        
-        title = new TextAnimator(this, "defender 2oxx", 105, 50, 0);
-        newGame = new TextAnimator(this, "new game", 105, 60, 0);
-        highScore = new TextAnimator(this, "high scores", 105, 70, 0);
+        title = new TextAnimator(this, "defender 2oxx", text_x, text_y, 0);
+        newGame = new TextAnimator(this, "new game", text_x, text_y+10, 0);
+        highScore = new TextAnimator(this, "high scores", text_x, text_y+20, 0);
         startGame = true;
         highScores = false;
         fireballCooldown = 0;

@@ -3,9 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/01126559/Documents/NetBeansProjects/Defender20XX/src/Defender20XX/StageOneScene.java</file>
-            <file>file:/C:/Users/01126559/Documents/NetBeansProjects/Defender20XX/src/Defender20XX/HighScoresScene.java</file>
-            <file>file:/C:/Users/01126559/Documents/NetBeansProjects/Defender20XX/src/Defender20XX/TitleScene.java</file>
+            <file>file:/C:/Users/Dox/Documents/NetBeansProjects/defender_v1.3/src/Defender20XX/Defender20XX.java</file>
+            <file>file:/C:/Users/Dox/Documents/NetBeansProjects/defender_v1.3/src/Defender20XX/Building.java</file>
+            <file>file:/C:/Users/Dox/Documents/NetBeansProjects/defender_v1.3/src/Defender20XX/Cursor.java</file>
+            <file>file:/C:/Users/Dox/Documents/NetBeansProjects/defender_v1.3/src/Defender20XX/Enemy.java</file>
+            <file>file:/C:/Users/Dox/Documents/NetBeansProjects/defender_v1.3/src/Defender20XX/PixelChar.java</file>
+            <file>file:/C:/Users/Dox/Documents/NetBeansProjects/defender_v1.3/src/Defender20XX/ColorPalette.java</file>
         </group>
     </open-files>
 </project-private>

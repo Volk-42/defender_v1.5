@@ -6,7 +6,7 @@ public class Streetlamp extends SceneObject {
     
     public Streetlamp(int x, int y) {
         super(Sprite.getSprite("streetlamp"), x, y);
-        setColor(Color.BLUE);
+        setColor(ColorPalette.B3);
     }
     public boolean moved() {
         boolean moved;

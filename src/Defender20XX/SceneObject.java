@@ -121,6 +121,12 @@ public abstract class SceneObject {
     public int getAnimationLength() {
         return animationLength;
     }
+    public int getAnimationTicker() {
+        return animationTicker;
+    }
+    public int getAnimationSpeed() {
+        return animationSpeed;
+    }
     public void setAnimationFrames(ArrayList<int[][]> animationFrames) {
         this.animationFrames = animationFrames;
     }

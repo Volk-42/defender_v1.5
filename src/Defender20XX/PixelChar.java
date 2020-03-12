@@ -13,9 +13,9 @@ public class PixelChar extends SceneObject {
         this.character = character;
         timeToFinal = 5;
         countdown = 0;
-        setColor(Color.BLUE);
-        setAnimationSpeed(2);
+        setAnimationSpeed(1);
         setAnimationLength(10);
+        setColor(ColorPalette.B2);
     }
     
     @Override

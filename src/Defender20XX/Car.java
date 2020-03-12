@@ -4,7 +4,7 @@ import java.awt.Color;
 
 public class Car extends SceneObject {
     
-    public Car(int x, int y) {
+    Car(int x, int y) {
         super(Sprite.getSprite("car"), x, y);
         setColor(Color.BLUE);
     }

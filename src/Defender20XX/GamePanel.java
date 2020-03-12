@@ -1,5 +1,6 @@
 package Defender20XX;
 
+import java.awt.Color;
 import javax.swing.JPanel;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
