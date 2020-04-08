@@ -53,21 +53,25 @@ public class StageOneScene extends Scene {
                 case KeyEvent.VK_DOWN:
                     ship.moveDown();
                     break;
-            case KeyEvent.VK_UP:
+                case KeyEvent.VK_UP:
                     ship.moveUp();
                     break;
-            case KeyEvent.VK_LEFT:
+                case KeyEvent.VK_LEFT:
                     ship.moveLeft();
                     break;
-            case KeyEvent.VK_RIGHT:
+                case KeyEvent.VK_RIGHT:
                     ship.moveRight();
                     ship.enginesEngaged();
                     break;
-            case KeyEvent.VK_A:
+                case KeyEvent.VK_A:
                     ship.fireWeapons();
                     //enemy.setDestroyed(true);
+                    break;       
+                case KeyEvent.VK_L:
+                    LaserCharge enemyLaser = new LaserCharge(10, 10, 0);
+                    sceneObjects.add(enemyLaser);
                     break;
-            case KeyEvent.VK_ENTER:
+                default:
                     break;
             }
         }
@@ -78,6 +82,7 @@ public class StageOneScene extends Scene {
             }
         }
         //enemy x direction
+        /*
         if(enemy_xDir) {
             enemy.set_xPos(enemy.get_xPos()+1);
         }
@@ -104,7 +109,7 @@ public class StageOneScene extends Scene {
         }
         if(enemy.get_yPos() < 20 && !enemy_yDir) {
             enemy_yDir = true;
-        }
+        }*/
         building1.set_xPos(building1.get_xPos() - 1);
         if (building1.get_xPos() < -80) {
             sceneObjects.remove(building1);
