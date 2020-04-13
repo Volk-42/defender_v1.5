@@ -1,11 +1,12 @@
 package Defender20XX;
 
 import java.awt.Color;
+import java.io.File;
 
 public class Car extends SceneObject {
     
     Car(int x, int y) {
-        super(Sprite.getSprite("car"), x, y);
+        super(new File("car.csv"), x, y);
         setColor(Color.BLUE);
     }
     public boolean moved() {

@@ -1,6 +1,7 @@
 package Defender20XX;
 import java.awt.Color;
 import java.util.Random;
+import java.io.File;
 
 public class ShipGuns extends SceneObject {
     private Ship ship;
@@ -10,7 +11,7 @@ public class ShipGuns extends SceneObject {
     private Random r;
    
     public ShipGuns(Ship ship, int x, int y) {
-        super(Sprite.getShot1(), x, y);
+        super(new File("shipfire.csv"), x, y);
         set_zDepth(1);
         this.setVisible(false);
         setColor(ColorPalette.B1);

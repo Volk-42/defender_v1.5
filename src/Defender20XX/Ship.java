@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.awt.event.KeyEvent;
 import java.awt.Color;
+import java.io.File;
 
 public class Ship extends SceneObject {
     private boolean weaponsEngaged;
@@ -16,7 +17,7 @@ public class Ship extends SceneObject {
     
    
     public Ship(int x, int y) {
-        super(Sprite.getShip(), x, y);
+        super(new File("ship.csv"), x, y);
         set_zDepth(1);
         setColor(ColorPalette.B2);
         weaponsLag = 0;

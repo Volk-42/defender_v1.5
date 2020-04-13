@@ -1,11 +1,12 @@
 package Defender20XX;
 
 import java.awt.Color;
+import java.io.File;
 
 public class Building extends SceneObject {
     
     public Building(int x, int y) {
-        super(Sprite.getSprite("building"), x, y);
+        super(new File("building1.csv"), x, y);
         setColor(ColorPalette.B3_1);
     }
     public boolean moved() {

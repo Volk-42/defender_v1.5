@@ -1,11 +1,12 @@
 package Defender20XX;
 
 import java.awt.Color;
+import java.io.File;
 
 public class Streetlamp extends SceneObject {
     
     public Streetlamp(int x, int y) {
-        super(Sprite.getSprite("streetlamp"), x, y);
+        super(new File("streetlamp.csv"), x, y);
         setColor(ColorPalette.B3);
     }
     public boolean moved() {

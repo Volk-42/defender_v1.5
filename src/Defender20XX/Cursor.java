@@ -1,11 +1,12 @@
 package Defender20XX;
 
 import java.awt.Color;
+import java.io.File;
 
 public class Cursor extends SceneObject {
     
     public Cursor(int x, int y) {
-        super(Sprite.getSprite("cursor"), x, y);
+        super(new File("cursor.csv"), x, y);
         setColor(ColorPalette.B2);
     }
     public boolean moved() {
