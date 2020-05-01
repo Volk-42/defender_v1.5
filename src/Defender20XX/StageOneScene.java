@@ -22,7 +22,7 @@ public class StageOneScene extends Scene {
     
     StageOneScene(int col, int row) {
         ship = new Ship(50, 50);
-        engineExhaust = new EngineExhaust(50, 50, 0);
+        engineExhaust = new EngineExhaust(ship, 50, 50, 0);
         shipGuns = new ShipGuns(ship, 0, 0);
         enemy = new Enemy(100, 50, 0);
         car1 = new Car(25, ground_y);

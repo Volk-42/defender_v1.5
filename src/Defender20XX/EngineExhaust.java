@@ -13,8 +13,10 @@ public class EngineExhaust extends SceneObject {
     private int loopingBackTicker;
     private boolean destroyed;
     private boolean loopingBack;
-    EngineExhaust(int x, int y, int activationDelay) {
+    private Ship ship;
+    EngineExhaust(Ship ship, int x, int y, int activationDelay) {
         super(new File("engineExhaust1.csv"), x, y, activationDelay);
+        this.ship = ship;
         set_zDepth(1);
         setColor(ColorPalette.B2);
         setAnimated(true);
@@ -22,7 +24,7 @@ public class EngineExhaust extends SceneObject {
         setLoops(true);
         setAnimationSpeed(4);
         setAnimationLength(5);
-        String[] frames = {"engineExhaust1", "engineExhaust2"};
+        String[] frames = {"engineExhaust1.csv", "engineExhaust2.csv"};
         setAnimationFrames(frames);
         setAnimationLength(frames.length);
         explosionSpeed = 5;
@@ -32,5 +34,12 @@ public class EngineExhaust extends SceneObject {
         loopingBackTicker = 0;
         destroyed = false;
         loopingBack = false;
+    }
+    
+    @Override
+    public void update() {
+        set_xPos(ship.get_xPos() + 2);
+        set_yPos(ship.get_yPos() + 5);
+        super.update();
     }
 }

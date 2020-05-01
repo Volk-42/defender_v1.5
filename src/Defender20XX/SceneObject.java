@@ -118,7 +118,7 @@ public abstract class SceneObject {
         if(animationFrameNum > animationLength && !loops) {
             setAnimated(false);
         }
-        else if(animationFrameNum > animationLength && loops) {
+        else if(animationFrameNum >= animationLength && loops) {
             setAnimationFrameNum(0);
         }
     }
