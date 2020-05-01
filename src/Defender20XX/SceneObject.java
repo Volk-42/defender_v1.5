@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public abstract class SceneObject {
     private int[][] spriteGrid;
-    private ArrayList<int[][]> animationFrames;
+    private String[] animationFrames;
     private boolean visible;
     private Color color;
     private int xPos;
@@ -35,29 +35,8 @@ public abstract class SceneObject {
     
     //constructor for non-animated Sprites
     SceneObject(File spriteFile, int x, int y) {
-        try {
-            FileReader fr = new FileReader(spriteFile);
-            BufferedReader br = new BufferedReader(fr);
-            String s = br.readLine();
-            String[] coordinateArray = new String[s.length()/2];
-            coordinateArray = s.split(",");
-            int index = 0;
-            spriteGrid = new int[coordinateArray.length/2][2];
-            for (int i = 0; i < spriteGrid.length; i++) {
-                spriteGrid[i][0] = Integer.parseInt(coordinateArray[index]);
-                spriteGrid[i][1] = Integer.parseInt(coordinateArray[index+1]);
-                index+=2;
-            }
-        }
-        catch(FileNotFoundException e1) {
-            System.out.println(e1);
-        }
-        catch(EOFException e2) {
-            System.out.println(e2);
-        }
-        catch(IOException e3) {
-            System.out.println(e3);
-        }
+        SpriteMaker spriteMaker = new SpriteMaker(spriteFile);
+        spriteGrid = spriteMaker.getSpriteGrid();
         xPos = x;
         yPos = y;
         oldX = x;
@@ -73,8 +52,10 @@ public abstract class SceneObject {
         active = true;
     }
     //constructor for animated Sprites
-    SceneObject(int[][] spriteGrid, int x, int y, int activationDelay) {
-        this.spriteGrid = spriteGrid;
+    SceneObject(File spriteFile, int x, int y, int activationDelay) {
+        SpriteMaker spriteMaker = new SpriteMaker(spriteFile);
+        spriteGrid = spriteMaker.getSpriteGrid();
+        animationFrames = new String[1];
         visible = false;
         animated = true;
         xPos = x;
@@ -123,7 +104,11 @@ public abstract class SceneObject {
     }
     
     public void animate() {
-        setSprite(getNextAnimationFrame(animationFrameNum));
+        //setSprite(getNextAnimationFrame(animationFrameNum));
+        //File animationFrame = new File();
+        File nextFrame = new File(animationFrames[animationFrameNum]);
+        SpriteMaker spriteMaker = new SpriteMaker(nextFrame);
+        setSprite(spriteMaker.getSpriteGrid());
         //controls the speed frames are cycled
         if(animationTicker == animationSpeed) {
             animationFrameNum++;
@@ -137,7 +122,7 @@ public abstract class SceneObject {
             setAnimationFrameNum(0);
         }
     }
-    public void setAnimated(boolean b) {
+    final public void setAnimated(boolean b) {
         animated = b;
     }
     public void setAnimationFrameNum(int animationFrameNum) {
@@ -155,26 +140,15 @@ public abstract class SceneObject {
     public int getAnimationSpeed() {
         return animationSpeed;
     }
-    public void setAnimationFrames(ArrayList<int[][]> animationFrames) {
-        this.animationFrames = animationFrames;
-    }
-    public void addAnimationFrame(int[][] animationFrame) {
-        animationFrames.add(animationFrame);
-    }
-    public void clearAnimationFrames() {
-        animationFrames.clear();
-    }
-    public int[][] getAnimationFrame(int i) {
-        return animationFrames.get(i);
-    }
+    
     public int getAnimationFramesLength() {
-        return animationFrames.size();
+        return animationFrames.length;
     }
     public void setRunsThenLocks(boolean b) {
         runsThenLocks = b;
     }
     
-    public void setColor(Color color) {
+    final public void setColor(Color color) {
         this.color = color;
     }
     
@@ -216,7 +190,7 @@ public abstract class SceneObject {
     public int get_oldY() {
         return oldY;
     }
-    public void set_zDepth(int z) {
+    final public void set_zDepth(int z) {
         zDepth = z;
     }
     public int get_zDepth() {
@@ -228,7 +202,7 @@ public abstract class SceneObject {
         return spriteGrid;
     }
     
-    public void setVisible(boolean b) {
+    final public void setVisible(boolean b) {
         visible = b;
         System.out.println("GraphicsObject.setVisible("+b+")");
     }
@@ -247,20 +221,23 @@ public abstract class SceneObject {
     public void setActive(boolean b) {
         active = b;
     }
-    public void setLoops(boolean b) {
+    final public void setLoops(boolean b) {
         loops = b;
     }
     public void setRunsOnce(boolean b) {
         runsOnce = b;
     }
-    public int[][] getNextAnimationFrame(int animationFrameNum) {
+    final public int[][] getNextAnimationFrame(int animationFrameNum) {
         int[][] myInt = getSpriteGrid();
         return myInt;
     }
-    public void setAnimationSpeed(int animationSpeed) {
+    final public void setAnimationSpeed(int animationSpeed) {
         this.animationSpeed = animationSpeed;
     }
-    public void setAnimationLength(int animationLength) {
+    final public void setAnimationLength(int animationLength) {
         this.animationLength = animationLength;
+    }
+    final public void setAnimationFrames(String[] animationFrames) {
+        this.animationFrames = animationFrames;
     }
 }

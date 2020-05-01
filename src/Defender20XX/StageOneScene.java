@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public class StageOneScene extends Scene {
     private Ship ship;
+    private EngineExhaust engineExhaust;
     private ShipGuns shipGuns;
     private Enemy enemy;
     private boolean enemy_xDir = true;
@@ -21,6 +22,7 @@ public class StageOneScene extends Scene {
     
     StageOneScene(int col, int row) {
         ship = new Ship(50, 50);
+        engineExhaust = new EngineExhaust(50, 50, 0);
         shipGuns = new ShipGuns(ship, 0, 0);
         enemy = new Enemy(100, 50, 0);
         car1 = new Car(25, ground_y);
@@ -41,6 +43,7 @@ public class StageOneScene extends Scene {
         sceneObjects.add(building1);
         sceneObjects.add(building2);
         sceneObjects.add(ship);
+        sceneObjects.add(engineExhaust);
         sceneObjects.add(shipGuns);
         sceneObjects.add(enemy);
     }

@@ -3,6 +3,7 @@ package Defender20XX;
 
 import java.awt.Color;
 import java.util.Random;
+import java.io.File;
 
 public class Enemy extends SceneObject {
     private int explosionSpeed;
@@ -13,14 +14,18 @@ public class Enemy extends SceneObject {
     private boolean destroyed;
     private boolean loopingBack;
     Enemy(int x, int y, int activationDelay) {
-        super(Sprite.getEnemyFrame(0), x, y, activationDelay);
+        super(new File("enemy.csv"), x, y, activationDelay);
         set_zDepth(1);
         setColor(ColorPalette.B2);
         setAnimated(false);
         setVisible(true);
         setLoops(false);
         setAnimationSpeed(4);
-        setAnimationLength(Sprite.ENEMY_FRAMES.size() - 1);
+        setAnimationLength(5);
+        String[] frames = {"enemyExplode1.csv","enemyExplode2.csv",
+                            "enemyExplode3.csv","enemyExplode4.csv",
+                            "enemyExplode5.csv","enemyExplode6.csv"};
+        setAnimationFrames(frames);
         explosionSpeed = 5;
         frame = 0;
         ticker = 1;
@@ -34,8 +39,9 @@ public class Enemy extends SceneObject {
     }
     public void setDestroyed(boolean b) {
         //setAnimated(true);
-        //destroyed = b;
+       destroyed = b;
        loopBack();
+       setAnimated(true);
     }
     
     @Override
@@ -67,11 +73,6 @@ public class Enemy extends SceneObject {
             }
         }
         super.update();
-    }
-    @Override
-    public int[][] getNextAnimationFrame(int animationFrameNum) {
-        int[][] nextAnimationFrame = Sprite.getEnemyFrame(animationFrameNum);
-        return nextAnimationFrame;
     }
     
     private void sink() {

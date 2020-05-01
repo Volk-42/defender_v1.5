@@ -3,24 +3,31 @@ package Defender20XX;
 import java.util.Random;
 
 public class TextAnimator {
+    final private String ALPHANUMERIC_CHARACTERS = 
+                                "0123456789abcdefghijklmnopqrstuvwxyz";
     private int x; //starting coordinate
     private int y; //starting coordinate
-    String s;
-    char c;
-    Random r;
+    String inputString;
+    char finalChar;
+    char startingChar;
     
-    TextAnimator (Scene activeScene, String s, int x,int y,
+    TextAnimator (Scene activeScene, String inputString, int x,int y,
                                                 int activationDelay) {
         
-        this.s = s;
+        this.inputString = inputString;
         this.x = x; //starting coordinate
         this.y = y; //starting coordinate
-        r = new Random();
         
-        for (int i = 0; i < s.length(); i++) {
-            c = s.charAt(i);
-            PixelChar pixelChar = new PixelChar(c, x +(i*5), y, i*2);
+        for (int i = 0; i < inputString.length(); i++) {
+            startingChar = getRandomChar();
+            finalChar = inputString.charAt(i);
+            PixelChar pixelChar = new PixelChar(finalChar, x +(i*5), y, i*2);
             activeScene.sceneObjects.add(pixelChar);
         }
+    }
+    private char getRandomChar() {
+        Random r = new Random();
+        char c = ALPHANUMERIC_CHARACTERS.charAt(r.nextInt(26));
+        return c;
     }
 }

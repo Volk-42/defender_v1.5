@@ -3,10 +3,11 @@ package Defender20XX;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import java.io.File;
 
 public class LaserCharge extends SceneObject {
     LaserCharge(int x, int y, int activationDelay) {
-        super(Sprite.getLaserFrame(0), x, y, activationDelay);
+        super(new File("laserfire.csv"), x, y, activationDelay);
         set_zDepth(0);
         setColor(ColorPalette.B1);
         setAnimationSpeed(4);
@@ -18,10 +19,5 @@ public class LaserCharge extends SceneObject {
             setActive(false);
         }
         super.update();
-    }
-    @Override
-    public int[][] getNextAnimationFrame(int animationFrameNum) {
-        int[][] nextAnimationFrame = Sprite.getLaserFrame(animationFrameNum);
-        return nextAnimationFrame;
     }
 }

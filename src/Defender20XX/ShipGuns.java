@@ -11,7 +11,7 @@ public class ShipGuns extends SceneObject {
     private Random r;
    
     public ShipGuns(Ship ship, int x, int y) {
-        super(new File("shipfire.csv"), x, y);
+        super(new File("shipfire1.csv"), x, y);
         set_zDepth(1);
         this.setVisible(false);
         setColor(ColorPalette.B1);
@@ -25,8 +25,9 @@ public class ShipGuns extends SceneObject {
     @Override
     public void update() {
         int xOffset = r.nextInt(150) + 35;
+        int yOffset = r.nextInt(2) + 8;
         set_xPos(ship.get_xPos() + xOffset);
-        set_yPos(ship.get_yPos() + 8);
+        set_yPos(ship.get_yPos() + yOffset);
         frame++;
         frame%=flickerRate*2;
         super.update();
