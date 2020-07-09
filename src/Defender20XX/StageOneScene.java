@@ -8,10 +8,12 @@ import java.util.ArrayList;
 public class StageOneScene extends Scene {
     private Ship ship;
     private EngineExhaust engineExhaust;
+    private EngineWake engineWake;
     private ShipGuns shipGuns;
     private Enemy enemy;
     private boolean enemy_xDir = true;
     private boolean enemy_yDir = true;
+    private boolean engineWakeVisible;
     private Building building1;
     private Building building2;
     private Car car1;
@@ -23,10 +25,12 @@ public class StageOneScene extends Scene {
     StageOneScene(int col, int row) {
         ship = new Ship(50, 50);
         engineExhaust = new EngineExhaust(ship, 50, 50, 0);
+        //engineWake = new EngineWake(ship, 50, 50, 0);
         shipGuns = new ShipGuns(ship, 0, 0);
         enemy = new Enemy(100, 50, 0);
         car1 = new Car(25, ground_y);
         car2 = new Car(115, ground_y);
+        engineWakeVisible = false;
         building1 = new Building(90, 35);
         building1.set_zDepth(2);
         building2 = new Building(25, 25);
@@ -44,6 +48,7 @@ public class StageOneScene extends Scene {
         sceneObjects.add(building2);
         sceneObjects.add(ship);
         sceneObjects.add(engineExhaust);
+        //sceneObjects.add(engineWake);
         sceneObjects.add(shipGuns);
         sceneObjects.add(enemy);
     }
@@ -83,6 +88,14 @@ public class StageOneScene extends Scene {
             if(streetlamp.get_xPos() < -80) {
                 streetlamp.set_xPos(230);
             }
+        }
+        /*adds wake when ship gets low. Control for removal is handled within
+        the engine wake instance because I'm too stupid to figure out 
+        how to make it work another way*/
+        if (ship.get_yPos() > 110 && engineWakeVisible == false) {
+            engineWakeVisible = true;
+            engineWake = new EngineWake(ship, 50, 50, 0);
+            sceneObjects.add(engineWake);
         }
         //enemy x direction
         /*

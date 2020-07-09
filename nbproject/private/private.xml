@@ -3,9 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Dox/Documents/NetBeansProjects/defender_v1.3/src/Defender20XX/StageOneScene.java</file>
-            <file>file:/C:/Users/Dox/Documents/NetBeansProjects/defender_v1.3/src/Defender20XX/Building.java</file>
-            <file>file:/C:/Users/Dox/Documents/NetBeansProjects/defender_v1.3/src/Defender20XX/ShipGuns.java</file>
+            <file>file:/home/dox/NetBeansProjects/defender_v1.5/src/Defender20XX/PixelChar.java</file>
+            <file>file:/home/dox/NetBeansProjects/defender_v1.5/src/Defender20XX/SpriteMaker.java</file>
+            <file>file:/home/dox/NetBeansProjects/defender_v1.5/src/Defender20XX/SceneObject.java</file>
+            <file>file:/home/dox/NetBeansProjects/defender_v1.5/src/Defender20XX/Sprite.java</file>
         </group>
     </open-files>
 </project-private>

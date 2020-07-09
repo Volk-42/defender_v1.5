@@ -11,7 +11,7 @@ public class LaserCharge extends SceneObject {
         set_zDepth(0);
         setColor(ColorPalette.B1);
         setAnimationSpeed(4);
-        setAnimationLength(Sprite.LASER_FRAMES.size() - 1);
+        setAnimationLength(4);
     }
     @Override
     public void update() {

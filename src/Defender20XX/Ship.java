@@ -26,7 +26,7 @@ public class Ship extends SceneObject {
         flickerRate = 10;
     }
     public void moveRight() {
-        if(get_xPos() < 245) {
+        if(get_xPos() < 220) {
             set_xPos(get_xPos() + 1);
         }
     }
@@ -46,7 +46,7 @@ public class Ship extends SceneObject {
     }
     public void moveDown() {
         int yPos = get_yPos();
-        if(yPos < 135) {
+        if(yPos < 115) {
             yPos++;
             set_yPos(yPos);
         }

@@ -38,7 +38,6 @@ public class Enemy extends SceneObject {
         return destroyed;
     }
     public void setDestroyed(boolean b) {
-        //setAnimated(true);
        destroyed = b;
        loopBack();
        setAnimated(true);

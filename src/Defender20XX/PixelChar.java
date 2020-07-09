@@ -16,7 +16,7 @@ public class PixelChar extends SceneObject {
     private char finalChar;
     private int timeToFinal;
     public PixelChar(char finalChar, int x, int y, int activationDelay) {
-        super(new File("CharO.csv"), x, y, activationDelay);
+        super(new File("charO.csv"), x, y, activationDelay);
         this.finalChar = finalChar;
         timeToFinal = 5;
         countdown = 0;
