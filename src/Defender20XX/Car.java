@@ -7,7 +7,7 @@ public class Car extends SceneObject {
     
     Car(int x, int y) {
         super(new File("car.csv"), x, y);
-        setColor(Color.BLUE);
+        setColor(ColorPalette.B2);
     }
     public boolean moved() {
         boolean moved;

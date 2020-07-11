@@ -106,8 +106,4 @@ public class Ship extends SceneObject {
         frame%=flickerRate*2;
         super.update();
     }
-    @Override
-    public void animate() {
-        
-    }
 }

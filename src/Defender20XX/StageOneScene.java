@@ -18,8 +18,8 @@ public class StageOneScene extends Scene {
     private Building building2;
     private Car car1;
     private Car car2;
-    final private int ground_y = 127;
-    final private int streetLampGround_y = 111;
+    final private int ground_y = 129;
+    final private int streetLampGround_y = 113;
     private ArrayList<Streetlamp> streetlamps;
     
     StageOneScene(int col, int row) {
@@ -86,7 +86,7 @@ public class StageOneScene extends Scene {
         for(int i = 0; i < streetlamps.size(); i++) {
             Streetlamp streetlamp = streetlamps.get(i);
             if(streetlamp.get_xPos() < -80) {
-                streetlamp.set_xPos(230);
+                streetlamp.set_xPos(250);
             }
         }
         /*adds wake when ship gets low. Control for removal is handled within
@@ -94,7 +94,7 @@ public class StageOneScene extends Scene {
         how to make it work another way*/
         if (ship.get_yPos() > 110 && engineWakeVisible == false) {
             engineWakeVisible = true;
-            engineWake = new EngineWake(ship, 50, 50, 0);
+            engineWake = new EngineWake(ship, ship.get_xPos()-20, 120, 0);
             sceneObjects.add(engineWake);
         }
         //enemy x direction
@@ -142,13 +142,13 @@ public class StageOneScene extends Scene {
         }
         if (car1.get_xPos() < -80) {
             sceneObjects.remove(car1);
-            car1 = new Car(230, ground_y);
+            car1 = new Car(250, ground_y);
             car1.set_zDepth(1);
             sceneObjects.add(car1);
         }
         if (car2.get_xPos() < -80) {
             sceneObjects.remove(car2);
-            car2 = new Car(230, ground_y);
+            car2 = new Car(250, ground_y);
             car2.set_zDepth(1);
             sceneObjects.add(car2);
         }

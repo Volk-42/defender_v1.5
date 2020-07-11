@@ -15,16 +15,16 @@ public class EngineWake extends SceneObject {
     private boolean loopingBack;
     private Ship ship;
     EngineWake(Ship ship, int x, int y, int activationDelay) {
-        super(new File("engineExhaust1.csv"), x, y, activationDelay);
+        super(new File("wake1.csv"), x, y, activationDelay);
         this.ship = ship;
         set_zDepth(1);
         setColor(ColorPalette.B2);
         setAnimated(true);
-        setVisible(false);
+        setVisible(true);
         setLoops(true);
         setAnimationSpeed(4);
         //setAnimationLength(1);
-        String[] frames = {"engineExhaust1.csv", "engineExhaust2.csv"};
+        String[] frames = {"wake1.csv", "wake2.csv"};
         setAnimationFrames(frames);
         setAnimationLength(frames.length);
         explosionSpeed = 5;
@@ -38,14 +38,11 @@ public class EngineWake extends SceneObject {
     
     @Override
     public void update() {
-        set_xPos(ship.get_xPos() - 15);
-        set_yPos(ship.get_yPos() + 15);
+        set_xPos(ship.get_xPos() - 20);
+        //set_yPos(ship.get_yPos());
+        
         if(ship.get_yPos() <= 110 && this.isVisible()) {
-            this.setLoops(false);
-            if(this.getAnimationFrameNum() > this.getAnimationLength()) {
-                System.out.println("enemy frameNum > enemy animationLength");
-                setActive(false);
-            }
+            setActive(false);
         }
         super.update();
     }
