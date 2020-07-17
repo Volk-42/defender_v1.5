@@ -97,6 +97,10 @@ public class StageOneScene extends Scene {
             engineWake = new EngineWake(ship, ship.get_xPos()-20, 120, 0);
             sceneObjects.add(engineWake);
         }
+        if(ship.get_yPos() <= 110 && engineWakeVisible) {
+            engineWakeVisible = false;
+            engineWake.setActive(false);
+        }
         //enemy x direction
         /*
         if(enemy_xDir) {
@@ -125,7 +129,9 @@ public class StageOneScene extends Scene {
         }
         if(enemy.get_yPos() < 20 && !enemy_yDir) {
             enemy_yDir = true;
-        }*/
+        }
+*/
+        //resets objects to screen right after they pass off screen
         building1.set_xPos(building1.get_xPos() - 1);
         if (building1.get_xPos() < -80) {
             sceneObjects.remove(building1);
@@ -152,6 +158,7 @@ public class StageOneScene extends Scene {
             car2.set_zDepth(1);
             sceneObjects.add(car2);
         }
+        //triggers enemy destruction
         if (ship.weaponsEngaged()) {
             shipGuns.setVisible(true);
             if(enemy.get_yPos() == ship.get_yPos() 

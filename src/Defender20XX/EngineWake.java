@@ -41,9 +41,7 @@ public class EngineWake extends SceneObject {
         set_xPos(ship.get_xPos() - 20);
         //set_yPos(ship.get_yPos());
         
-        if(ship.get_yPos() <= 110 && this.isVisible()) {
-            setActive(false);
-        }
+        
         super.update();
     }
 }

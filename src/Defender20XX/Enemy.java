@@ -13,6 +13,7 @@ public class Enemy extends SceneObject {
     private int loopingBackTicker;
     private boolean destroyed;
     private boolean loopingBack;
+    private boolean inPursuit;
     Enemy(int x, int y, int activationDelay) {
         super(new File("enemy.csv"), x, y, activationDelay);
         set_zDepth(1);
@@ -32,14 +33,14 @@ public class Enemy extends SceneObject {
         timer = 1;
         loopingBackTicker = 0;
         destroyed = false;
-        loopingBack = false;
+        loopingBack = true;
+        inPursuit = false;
     }
     public boolean getDestroyed() {
         return destroyed;
     }
     public void setDestroyed(boolean b) {
        destroyed = b;
-       loopBack();
        setAnimated(true);
     }
     
@@ -48,6 +49,11 @@ public class Enemy extends SceneObject {
         if(getAnimationFrameNum() > getAnimationLength()) {
             System.out.println("enemy frameNum > enemy animationLength");
             setActive(false);
+        }
+        if(destroyed) {
+            set_xPos(get_xPos() -1);
+            set_yPos(get_yPos() +1);
+            
         }
         if(loopingBack) {
             if(loopingBackTicker < 4) {
@@ -69,18 +75,16 @@ public class Enemy extends SceneObject {
             if(get_xPos() < - 70) {
                 loopingBack = false;
                 loopingBackTicker = 0;
+                inPursuit = true;
             }
+        }
+        if(inPursuit && get_xPos() < 20) {
+            set_xPos(get_xPos()+1);
         }
         super.update();
     }
     
-    private void sink() {
-        set_xPos(get_xPos() -1);
-        //set_yPos(get_yPos() +1);
-    }
-    public void loopBack() {
-        loopingBack = true;
-    }
+
     private void move() {
         if(timer <= 25) {
             set_xPos(get_xPos() + 1);
@@ -95,4 +99,5 @@ public class Enemy extends SceneObject {
             set_yPos(get_yPos() - 1);
         }
     }
+    
 }

@@ -32,17 +32,7 @@ public class GraphicsManager {
         ArrayList<SceneObject> sceneObjects = activeScene.getSceneObjects(); //get scene objects
         sceneObjects = zDepthSort(sceneObjects); //sort their painting order(BG first)
         for (int i = 0; i < sceneObjects.size(); i++) { //iterate through scene objects
-            SceneObject sceneObject = sceneObjects.get(i);
-            /* I want to add this back in so inactive objects are removed
-            from the scene. Need to figure out why characters are disappearing
-            once they become inactive. Visible and Active traits should be 
-            distinct. 
-            */
-            
-            if(sceneObject.active() == false) {
-                sceneObjects.remove(sceneObject);
-            }
-
+            SceneObject sceneObject = sceneObjects.get(i); 
             if(sceneObject.isVisible()) { //check visibility
                 int[][] spriteGrid = sceneObject.getSpriteGrid(); //get scene object pixel coordinates
                 framePainter.setColor(sceneObject.getColor()); //get scene object color
