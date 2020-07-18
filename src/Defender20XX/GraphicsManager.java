@@ -33,12 +33,14 @@ public class GraphicsManager {
         sceneObjects = zDepthSort(sceneObjects); //sort their painting order(BG first)
         for (int i = 0; i < sceneObjects.size(); i++) { //iterate through scene objects
             SceneObject sceneObject = sceneObjects.get(i); 
+            int xPos = sceneObject.get_xPos();
+            int yPos = sceneObject.get_yPos();
             if(sceneObject.isVisible()) { //check visibility
                 int[][] spriteGrid = sceneObject.getSpriteGrid(); //get scene object pixel coordinates
                 framePainter.setColor(sceneObject.getColor()); //get scene object color
                 for (int i2 = 0; i2 < spriteGrid.length; i2++) { //iterate through pixel coordinates
-                    int x = spriteGrid[i2][0]; //get pixel x position
-                    int y = spriteGrid[i2][1]; //get pixel y position
+                    int x = spriteGrid[i2][0] + xPos; //get pixel x position
+                    int y = spriteGrid[i2][1] + yPos; //get pixel y position
                     if (x <= colBound && y <= rowBound) { //check if on screen
                         framePainter.fillRect(x*5, y*5, 5, 5); //paint pixel
                     }

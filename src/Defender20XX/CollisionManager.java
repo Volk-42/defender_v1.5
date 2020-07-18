@@ -4,9 +4,25 @@ import java.util.ArrayList;
 
 public class CollisionManager {
 
-    
-    CollisionManager() {
- 
+    Scene activeScene;
+    CollisionManager(Scene activeScene) {
+        this.activeScene = activeScene;
+    }
+    public void checkCollision() {
+        ArrayList<SceneObject> collisionObjects = activeScene.getSceneObjects();
+        getShip(collisionObjects);
+        for(int i = 0; i < collisionObjects.size(); i++) {
+            SceneObject currentObject = collisionObjects.get(i);
+        }
+    }
+    private Ship (ArrayList<SceneObject> collisionObjects) {
+        Ship ship = new Ship(0, 0);
+        for(int i = 0; i < collisionObjects.size(); i++) {
+            if (collisionObjects.get(i) instanceof Ship) {
+                ship = (Ship)collisionObjects.get(i);
+            }
+        }
+        return ship;
     }
     /* consider moving this into the graphics manager. Also consider moving 
     the x, y pixel data updating out of the sceneobject class and into 
@@ -14,8 +30,10 @@ public class CollisionManager {
     assigned to a local variable using the getX, getY method and then added
     at the time of painting to the bufferedimage
     */
-   
+   /*
     public void detectCollisions(Scene activeScene) {
+        
+    }
         
         ArrayList<SceneObject> sceneObjects = activeScene.getSceneObjects(); //get scene objects
         for (int i = 0; i < sceneObjects.size(); i++) { //iterate through scene objects
@@ -44,4 +62,5 @@ public class CollisionManager {
             }
         }
         return frame;
+*/
     }

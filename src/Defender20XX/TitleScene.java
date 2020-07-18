@@ -17,7 +17,7 @@ public class TitleScene extends Scene {
     TitleScene() {
         text_x = 90;
         text_y = 50;
-        cursor = new Cursor(text_x - 10, 61);
+        cursor = new Cursor(80, 61);
         sceneObjects.add(cursor);
         title = new TextAnimator(this, "defender 2oxx", text_x, text_y, 0);
         newGame = new TextAnimator(this, "new game", text_x, text_y+10, 0);

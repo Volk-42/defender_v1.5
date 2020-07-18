@@ -29,6 +29,7 @@ public abstract class SceneObject {
     private boolean spriteChange;
     private boolean animated;
     private boolean loops;
+    private boolean collides;
     private boolean runsOnce;
     private boolean runsThenLocks;
     private boolean active;
@@ -41,12 +42,16 @@ public abstract class SceneObject {
         yPos = y;
         oldX = x;
         oldY = y;
+        //part of deprecated coordinate system
+        /*
         for(int i = 0; i < spriteGrid.length; i++) {
             spriteGrid[i][0] += xPos;
             spriteGrid[i][1] += yPos;
         }
+        */
         visible = true;
         animated = false;
+        collides = false;
         color = Color.WHITE;
         spriteChange = false;
         active = true;
@@ -58,14 +63,18 @@ public abstract class SceneObject {
         animationFrames = new String[1];
         visible = false;
         animated = true;
+        collides = false;
         xPos = x;
         yPos = y;
         oldX = x;
         oldY = y;
+        //deprecated coorindate system
+        /*
         for(int i = 0; i < spriteGrid.length; i++) {
             spriteGrid[i][0] += xPos;
             spriteGrid[i][1] += yPos;
         }
+        */
         this.activationDelay = activationDelay;
         animationTicker = 0;
         animationFrameNum = 0;
@@ -83,6 +92,8 @@ public abstract class SceneObject {
                 animate();
             } 
         }
+        //moving this functionality to graphics manager
+        /*
         if(spriteChange) {
             for(int i = 0; i < spriteGrid.length; i++) {
                 spriteGrid[i][0] += xPos;
@@ -100,6 +111,7 @@ public abstract class SceneObject {
             oldX = xPos;
             oldY = yPos;
         }    
+*/
         
     }
     
@@ -124,6 +136,9 @@ public abstract class SceneObject {
     }
     final public void setAnimated(boolean b) {
         animated = b;
+    }
+    final public void setCollides(boolean b) {
+        collides = b;
     }
     public void setAnimationFrameNum(int animationFrameNum) {
         this.animationFrameNum = animationFrameNum;

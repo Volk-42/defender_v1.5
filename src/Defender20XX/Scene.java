@@ -5,8 +5,9 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Scene {
-    ArrayList<SceneObject> sceneObjects = new ArrayList();;
-    HashSet<Integer> activeKeys = new HashSet();;
+    ArrayList<SceneObject> sceneObjects = new ArrayList();
+    ArrayList<SceneObject> collisionObjects = new ArrayList();
+    HashSet<Integer> activeKeys = new HashSet();
     Scene newScene;
     int[][] pixelGrid;
     int col;

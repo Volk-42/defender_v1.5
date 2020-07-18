@@ -55,5 +55,5 @@ public class SceneManager implements Runnable {
                 System.out.println(e);
             }
         }
-    }  
+    } 
 }

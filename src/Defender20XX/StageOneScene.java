@@ -24,10 +24,13 @@ public class StageOneScene extends Scene {
     
     StageOneScene(int col, int row) {
         ship = new Ship(50, 50);
+        ship.setCollides(true);
         engineExhaust = new EngineExhaust(ship, 50, 50, 0);
+        //wake is added in update method
         //engineWake = new EngineWake(ship, 50, 50, 0);
         shipGuns = new ShipGuns(ship, 0, 0);
         enemy = new Enemy(100, 50, 0);
+        enemy.setCollides(true);
         car1 = new Car(25, ground_y);
         car2 = new Car(115, ground_y);
         engineWakeVisible = false;

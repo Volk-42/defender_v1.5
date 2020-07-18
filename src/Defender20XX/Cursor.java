@@ -9,6 +9,8 @@ public class Cursor extends SceneObject {
         super(new File("cursor.csv"), x, y);
         setColor(ColorPalette.B2);
     }
+    //not needed?
+    /*
     public boolean moved() {
         boolean moved;
         int xPos = get_xPos();
@@ -23,4 +25,5 @@ public class Cursor extends SceneObject {
         }
         return moved;
     }
+*/
 }
