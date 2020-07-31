@@ -8,6 +8,7 @@ public class CollisionManager {
     CollisionManager(Scene activeScene) {
         this.activeScene = activeScene;
     }
+    /*
     public void checkCollision() {
         ArrayList<SceneObject> collisionObjects = activeScene.getSceneObjects();
         getShip(collisionObjects);
@@ -24,6 +25,7 @@ public class CollisionManager {
         }
         return ship;
     }
+    */
     /* consider moving this into the graphics manager. Also consider moving 
     the x, y pixel data updating out of the sceneobject class and into 
     grpahics manager as well. the X and Y offset could be set once and
